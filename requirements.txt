@@ -1,0 +1,4 @@
+sphinx==4.1.1
+nbsphinx==0.8.6
+jupyter==1.0.0
+plotly==5.1.0
