@@ -1,4 +1,4 @@
-name: "Pull Request Docs Check"
+name: "Deploy documentation"
 on:
   push:
     branches:
@@ -6,9 +6,25 @@ on:
 
 jobs:
   docs:
-    runs-on: ubuntu-latest
+    runs-on: macOS-latest
     steps:
     - uses: actions/checkout@v1
-    - uses: ammaraskar/sphinx-action@master
+
+    - uses: actions/setup-python@v2
       with:
-        docs-folder: "./"
+        python-version: '3.9'
+
+    - name: Install dependencies ⚙️
+      run: |
+        brew install pandoc
+        python -m pip install -r requirements.txt
+
+    - name: Build doc 🔨
+      run: |
+        make html
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./build/html
