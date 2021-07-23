@@ -868,12 +868,24 @@
    "source": [
     "import plotly.graph_objects as go\n",
     "fig = go.Figure(data=go.Bar(y=[2, 3, 1]))\n",
-    "fig.show()"
+    "fig.show()\n"
    ],
    "metadata": {
     "collapsed": false,
     "pycharm": {
      "name": "#%%\n"
+    }
+   }
+  },
+  {
+   "cell_type": "markdown",
+   "source": [
+    "Another markdown cell :)"
+   ],
+   "metadata": {
+    "collapsed": false,
+    "pycharm": {
+     "name": "#%% md\n"
     }
    }
   }
